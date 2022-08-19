@@ -1,0 +1,25 @@
+<div class="row">
+{{#if products}}
+<form action="/purchase" method="POST">
+    <button type="submit" class="btn btn-primary btn-block btn-sm">Purchase</button>
+</form>
+{{/if}}
+  {{#each products}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }}
+        </h4>
+        <p>{{ description }} </p>
+        <p>{{ price }} </p>
+        <!-- DELETE REQUEST -->
+        <form action="/delete-cart-product/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

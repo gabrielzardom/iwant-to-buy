@@ -1,0 +1,19 @@
+<div class="row">
+  {{#each products}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }}
+        </h4>
+        <p>{{ description }} </p>
+        <p>{{ price }} </p>
+        <!-- ADD CART -->
+        <form action="/add-cart/{{_id}}" method="POST">
+          <button type="submit" class="btn btn-primary btn-block btn-sm">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

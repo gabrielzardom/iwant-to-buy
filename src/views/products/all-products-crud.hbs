@@ -1,0 +1,28 @@
+<div class="row">
+  {{#each products}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }} <a href="/edit-product/{{_id}}"><i class="fas fa-edit"></i></a>
+        </h4>
+        <p>{{ description }} </p>
+        <p>{{ price }} </p>
+        <!-- DELETE REQUEST -->
+        <form action="/delete-product/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <div class="card mx-auto">
+    <div class="card-body">
+      <h1>Saludos {{user.name}}</h1>
+      <p clsss="lead">Todavía no hay productos.</p>
+      <a href="/new-product" class="btn btn-success btn-block">Crea uno!</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
